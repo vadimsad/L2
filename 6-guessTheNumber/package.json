@@ -1,11 +1,9 @@
 {
   "name": "start-template",
   "version": "1.0.0",
-  "description": "Шаблон с необходимой структурой для использования в заданиях L2",
+  "description": "Задание №6",
   "main": "index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC"
 }
