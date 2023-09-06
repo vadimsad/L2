@@ -1,0 +1,123 @@
+.content > * {
+    padding: 15px;
+}
+
+form label {
+    margin-right: 5px;
+}
+
+.content header {
+    position: relative;
+    border-bottom: 2px solid var(--gray-97);
+}
+
+.content header h2 {
+    font-weight: 400;
+    color: var(--purple);
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.buttons {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+
+button.restart {
+    background-image: url('../img/refresh.svg');
+}
+
+button.settings {
+    background-image: url('../img/settings.svg');
+}
+
+button.settings.active {
+    box-shadow: 0px 0px 0px 0px #fff9,
+    0px 0px 0px 0px #fff9,
+    0px 0px 0px 0px #0001,
+    0px 0px 0px 0px #0001,
+    inset -7px -7px 20px 0px #fff9,
+    inset -4px -4px 5px 0px #fff9,
+    inset 7px 7px 20px 0px #0003,
+    inset 4px 4px 5px 0px #0001;
+}
+
+.settings-menu {
+    display: none;
+    padding: 15px;
+    position: absolute;
+    top: 115%;
+    right: 0;
+    z-index: -1;
+    border-radius: 10px;
+    background-color: var(--white);
+    box-shadow: 0px 2px 10px 0px rgba(38, 51, 77, 0.20);
+}
+
+.settings-menu.visible {
+    display: block;
+}
+
+.attempts-items {
+    max-height: 50vh;
+    overflow: auto;
+}
+
+.attempts-items > div {
+    padding: 15px 0;
+}
+
+.attempts-items > div:not(:last-child) {
+    border-bottom: 2px solid var(--gray-97);
+}
+
+.hint {
+    display: none;
+    padding: 15px 30px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    border-radius: 10px;
+    background-color: var(--yellow);
+    color: var(--bronze);
+    box-shadow: 0px 2px 10px 0px rgba(38, 51, 77, 0.20);
+    transition: visibility 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.hint.visible {
+    display: block;
+}
+
+button.settings, button.restart {
+    position: relative;
+}
+
+@media(max-width:1200px) {
+    .message {
+        padding-right: 100px;
+    }
+}
+
+@media(max-width:992px) {
+    .hint {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+
+    .message {
+        padding-right: 80px;
+    }
+}
+
+@media(max-width:576px) {
+    .buttons {
+        gap: 5px;
+    }
+}

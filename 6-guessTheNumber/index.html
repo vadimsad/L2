@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/assets/styles/style.css">
+    <title>Задание №6</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="container">
+                <h1>Задание №6</h1>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <div class="content">
+                    <header>
+                        <h2 id="message" class="message">Я загадал число от 1 до 100, попробуйте его отгадать</h2>
+                        <div class="buttons">
+                            <button id="settings" class="settings" type="button"></button>
+                            <div id="settings-menu" class="settings-menu">
+                                Загадывать числа в диапазоне
+                                <label>
+                                    от:
+                                    <input id="min-number-input" type="number" value="1">
+                                </label>
+                                <label>
+                                    до
+                                    <input id="max-number-input" type="number" value="100">
+                                </label>
+                            </div>
+                            <button id="restart" class="restart" type="button"></button>
+                        </div>
+                    </header>
+                    <form id='guess-form'>
+                        <label>
+                            <input type="number" id="guess-input" class="guess" placeholder="Введите число">
+                        </label>
+                        <button type="submit" id="guess-submit">Ответить</button>
+                    </form>
+                    <div class="info">
+                        <div id="history" class="history">
+                            <span id="attempts-count"></span>
+                            <div id="attempts-items" class="attempts-items"></div>
+                        </div>
+                    </div>
+                    <div id="hint" class="hint"></div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="container"></div>
+        </footer>
+    </div>
+    <script src='./src/js/main.js' type="module"></script>
+</body>
+
+</html>
