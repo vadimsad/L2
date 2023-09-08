@@ -1,0 +1,40 @@
+.item {
+    transition: background-color, 0.2s ease-out;
+}
+
+.item:not(.done):hover, .item:not(.done):focus-visible {
+    background-color: var(--gray-95);
+}
+
+.item.done:hover, .item.done:focus-visible {
+    background-color: var(--gray-97);
+}
+
+.item button {
+    margin: 0 auto;
+}
+
+.prop {
+    padding: 0 10px;
+}
+
+.title {
+    font-weight: 600;
+}
+
+.centered {
+    text-align: center;
+}
+
+.edit {
+    background-image: url('../../assets/images/edit.svg');
+}
+
+.delete {
+    background-image: url('../../assets/images/delete.svg');
+}
+
+.done {
+    background: var(--gray-95);
+    text-decoration: line-through;
+}

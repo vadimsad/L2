@@ -1,0 +1,372 @@
+/* =========== Шрифты ============= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@100;200;300;400;500;600;700&family=Old+Standard+TT:wght@400;700&display=swap');
+
+/* =========== Базовые цвета ============= */
+
+:root {
+    --white: #ffffff;
+    --gray-98: #F7F8FA;
+    --gray-97: #F5F6F7;
+    --gray-96: #F2F3F5;
+    --gray-95: #EDEFF2;
+    --gray-70: #7D8FB3;
+    --gray-60: #6B7A99;
+    --gray-50: #4D5E80;
+    --purple: #83F;
+    --blue: #3361FF;
+    --yellow: #FFCB33;
+    --bronze: #CC7429;
+}
+
+/* =========== Базовые стили ============= */
+
+html {
+    height: 100%;
+    font-family: Montserrat;
+    color: var(--gray-70);
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background-color: var(--gray-98);
+}
+
+#root {
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    color: var(--gray-50);
+}
+
+h1 {
+    font-weight: 200;
+}
+
+[class*="container"] {
+    max-width: 1290px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+@media(max-width:1400px) {
+    [class*="container"] {
+        max-width: 1110px;
+    }
+}
+
+@media(max-width:1200px) {
+    [class*="container"] {
+        max-width: 930px;
+    }
+}
+
+@media(max-width:992px) {
+    [class*="container"] {
+        max-width: 690px;
+    }
+}
+
+@media(max-width:768px) {
+    [class*="container"] {
+        max-width: 510px;
+    }
+}
+
+@media(max-width:576px) {
+    [class*="container"] {
+        max-width: none;
+    }
+}
+
+*:focus-visible {
+    outline: 2px solid var(--gray-60);
+}
+
+label {
+    display: inline-block;
+}
+
+input, textarea {
+    padding: 10px 20px;
+    margin: 0;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid var(--gray-97);
+    background: var(--white);
+    box-shadow: -7px -7px 20px 0px #fff9,
+              -4px -4px 5px 0px #fff9,
+              7px 7px 20px 0px #0002,
+              4px 4px 5px 0px #0001,
+              inset 0px 0px 0px 0px #fff9,
+              inset 0px 0px 0px 0px #0001,
+              inset 0px 0px 0px 0px #fff9,
+              inset 0px 0px 0px 0px #0001;
+    color: var(--gray-70);
+    font-size: 1rem;
+    font-style: normal;
+    line-height: 20px; /* 166.667% */
+    transition: box-shadow 0.1s cubic-bezier(.79,.21,.06,.81), opacity 0.1s cubic-bezier(.79,.21,.06,.81);
+}
+
+input::placeholder, textarea::placeholder {
+    color: inherit;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+input:focus, textarea:focus {
+    box-shadow: 0px 0px 0px 0px #fff9,
+    0px 0px 0px 0px #fff9,
+    0px 0px 0px 0px #0001,
+    0px 0px 0px 0px #0001,
+    inset -7px -7px 20px 0px #fff9,
+    inset -4px -4px 5px 0px #fff9,
+    inset 7px 7px 20px 0px #0003,
+    inset 4px 4px 5px 0px #0001;
+    outline: none;
+}
+
+label > input[type=checkbox] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+label .custom-checkbox {
+    display: inline-flex;
+    justify-content: center;
+    user-select: none;
+}
+
+label .custom-checkbox::before {
+    content: '';
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    border-radius: 50%;
+    border: 2px solid var(--gray-96);
+    background: var(--white);
+    box-shadow: 0px 2px 10px 0px rgba(38, 51, 77, 0.03);
+    flex-shrink: 0;
+    flex-grow: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    transition: box-shadow 0.1s cubic-bezier(.79,.21,.06,.81);
+}
+
+/* стили для чекбокса, находящегося в фокусе */
+label > input:focus-visible + .custom-checkbox::before {
+    border: 2px solid var(--gray-60);
+}
+
+/* стили для чекбокса, находящегося в состоянии checked */
+label > input:checked + .custom-checkbox::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='6' viewBox='0 0 8 6' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8 1.2003L4.26078 4.8L3.01437 6L1.76797 4.8L1.77489 4.79334L0 3.0661L1.24674 1.8661L3.02129 3.59365L6.75359 0L8 1.2003Z' fill='%233361FF'/%3E%3C/svg%3E");
+}
+
+/* стили для чекбокса, находящегося в состоянии disabled */
+label > input:disabled + .custom-checkbox::before {
+    background-color: #e9ecef;
+}
+
+button {
+    padding: 0;
+    margin: 0;
+    background-color: var(--white);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: var(--gray-60);
+    text-align: center;
+    font-size: 1rem;
+    font-style: normal;
+    line-height: 20px;
+}
+
+.btn-primary {
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    background-color: var(--white);
+    box-shadow: -7px -7px 20px 0px #fff9,
+              -4px -4px 5px 0px #fff9,
+              7px 7px 20px 0px #0002,
+              4px 4px 5px 0px #0001,
+              inset 0px 0px 0px 0px #fff9,
+              inset 0px 0px 0px 0px #0001,
+              inset 0px 0px 0px 0px #fff9,
+              inset 0px 0px 0px 0px #0001;
+    transition:box-shadow 0.1s cubic-bezier(.79,.21,.06,.81);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+button[type="submit"].btn-primary {
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 2px solid var(--gray-97);
+    box-shadow: 0px 2px 5px 0px rgba(38, 51, 77, 0.03);
+    background: var(--white);
+}
+
+.btn-primary:active {
+    box-shadow: 0px 0px 0px 0px #fff9,
+    0px 0px 0px 0px #fff9,
+    0px 0px 0px 0px #0001,
+    0px 0px 0px 0px #0001,
+    inset -7px -7px 20px 0px #fff9,
+    inset -4px -4px 5px 0px #fff9,
+    inset 7px 7px 20px 0px #0003,
+    inset 4px 4px 5px 0px #0001;
+}
+
+.btn-primary:disabled {
+    box-shadow: none;
+}
+
+input:disabled, .btn-primary:disabled, textarea:disabled {
+    cursor: not-allowed;
+}
+
+.wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    display: flex;
+    flex: 1;
+}
+
+main .container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main .container .content {
+    margin: 30px 15px;
+    flex: 1;
+    border-radius: 10px;
+    background-color: var(--white);
+    box-shadow: 0px 2px 5px 0px rgba(38, 51, 77, 0.03);
+}
+
+main .container .content > * {
+    padding: 15px 0;
+}
+
+header, footer {
+    padding: 15px 0;
+    text-align: center;
+}
+
+.task-row {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 50px 1fr 250px 250px 50px 50px;
+    grid-template-areas: ". title due creation . .";
+    justify-content: center;
+    gap: 5px;
+    border-bottom: 3px solid var(--gray-95);
+}
+
+.grid-area-title {
+    grid-area: title;
+}
+
+.grid-area-due {
+    grid-area: due;
+}
+
+.grid-area-creation {
+    grid-area: creation;
+}
+
+.sort-none span,
+.sort-asc span,
+.sort-desc span {
+    position: relative;
+}
+
+.sort-none span::after,
+.sort-asc span::after,
+.sort-desc span::after {
+    position: absolute;
+    display: inline-block;
+    content: '';
+    top: 50%;
+    transform: translateY(-50%);
+    right: -30px;
+    transition: border 0.2s ease-out;
+}
+
+.sort-none span::after {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gray-70);
+}
+
+.sort-asc span::after {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 12px solid var(--gray-70);
+}
+
+.sort-desc span::after {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 12px solid var(--gray-70);
+}
+
+@media(max-width:992px) {
+    html {
+        font-size: 12px;
+    }
+
+    input, textarea {
+        padding: 6px 12px;
+    }
+
+    button[type="submit"] {
+        padding: 6px 12px;
+    }
+
+    button {
+        width: 30px;
+        height: 30px;
+        background-size: 80%;
+    }
+}
+
+@media(max-width:576px) {
+    html {
+        font-size: 10px;
+    }
+
+    main .container .content {
+        margin: 0;
+    }
+}

@@ -1,0 +1,15 @@
+.header {
+    border: none;
+    border-bottom: 3px solid var(--gray-60);
+}
+
+.header button {
+    padding: 10px;
+    font-weight: 600;
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+
+.taskTitle {
+    text-align: left;
+}

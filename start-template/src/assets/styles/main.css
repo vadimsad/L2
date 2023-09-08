@@ -2,6 +2,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@100;200;300;400;500;600;700&family=Old+Standard+TT:wght@400;700&display=swap');
 
+/* =========== Стили для блока с решением ============= */
+
+@import './content.css';
+
 /* =========== Базовые цвета ============= */
 
 :root {
@@ -81,7 +85,7 @@ label {
     display: inline-block;
 }
 
-input {
+input, textarea {
     padding: 10px 20px;
     margin: 0;
     outline: none;
@@ -147,7 +151,7 @@ button[type="submit"] {
     line-height: 20px;
 }
 
-button:active, button:focus-visible, input:focus-visible {
+button:active, button:focus-visible, input:focus-visible, textarea:focus-visible {
     box-shadow: 0px 0px 0px 0px #fff9,
     0px 0px 0px 0px #fff9,
     0px 0px 0px 0px #0001,
@@ -162,7 +166,7 @@ button:disabled {
     box-shadow: none;
 }
 
-input:disabled, button:disabled {
+input:disabled, button:disabled, textarea:disabled {
     cursor: not-allowed;
 }
 
@@ -184,17 +188,12 @@ main .container{
 }
 
 main .container .content {
-    position: relative;
     margin: 30px 15px;
     flex: 1;
     text-align: center;
     border-radius: 10px;
     background-color: var(--white);
     box-shadow: 0px 2px 5px 0px rgba(38, 51, 77, 0.03);
-}
-
-main .container .content > * {
-    padding: 15px;
 }
 
 header, footer {
@@ -207,7 +206,7 @@ header, footer {
         font-size: 12px;
     }
 
-    input {
+    input, textarea {
         padding: 6px 12px;
     }
 
