@@ -341,32 +341,143 @@ header, footer {
     border-top: 12px solid var(--gray-70);
 }
 
-@media(max-width:992px) {
+@media(max-width:1200px) {
     html {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     input, textarea {
         padding: 6px 12px;
     }
 
-    button[type="submit"] {
-        padding: 6px 12px;
+    label .custom-checkbox::before {
+        box-sizing: border-box;
     }
 
-    button {
+    .btn-primary {
         width: 30px;
         height: 30px;
         background-size: 80%;
     }
+
+    .task-row {
+        grid-template-columns: 25px 1fr 200px 200px 30px 30px;
+        padding: 5px 10px;
+    }
 }
 
-@media(max-width:576px) {
+@media(max-width:992px) {
+    html {
+        font-size: 12px;
+    }
+
+    input, textarea {
+        padding: 4px 10px;
+    }
+
+    label .custom-checkbox::before {
+        width: 1.2em;
+        height: 1.2em;
+    }
+
+    button[type="submit"] {
+        padding: 6px 12px;
+    }
+
+    .btn-primary {
+        width: 20px;
+        height: 20px;
+        background-size: 84%;
+    }
+
+    .task-row {
+        grid-template-columns: 20px 2fr 1fr 1fr 20px 20px;
+    }
+
+    .sort-none span::after {
+        width: 6px;
+        height: 6px;
+        right: -12px;
+    }
+
+    .sort-asc span::after {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 8px solid var(--gray-70);
+        right: -12px;
+    }
+
+    .sort-desc span::after {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 8px solid var(--gray-70);
+        right: -12px;
+    }
+}
+
+@media(max-width:768px) {
     html {
         font-size: 10px;
     }
 
     main .container .content {
         margin: 0;
+    }
+
+    input, textarea {
+        font-size: 0.9rem;
+    }
+
+    .task-row {
+        grid-template-columns: 12px 1.5fr 1fr 1fr 20px 20px;
+        border-bottom: 1px solid var(--gray-95);
+    }
+
+    .sort-none span::after {
+        width: 4px;
+        height: 4px;
+        right: -8px;
+    }
+
+    .sort-asc span::after {
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-bottom: 5px solid var(--gray-70);
+        right: -8px;
+    }
+
+    .sort-desc span::after {
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 5px solid var(--gray-70);
+        right: -8px;
+    }
+}
+
+@media(max-width:576px) {
+    html {
+        font-size: 8px;
+    }
+
+    main .container .content {
+        margin: 0;
+    }
+
+    .btn-primary {
+        width: 15px;
+        height: 15px;
+    }
+
+    label .custom-checkbox::before {
+        border: 1px solid var(--gray-96);
+    }
+
+    input, textarea {
+        border-radius: 8px;
+        border: 1px solid var(--gray-97);
+    }
+
+    .task-row {
+        grid-template-columns: 12px 1.2fr 1fr 1fr 15px 15px;
     }
 }
