@@ -5,10 +5,11 @@ export default function taskReducer(tasks, action) {
                 id: tasks.length > 0 ? findMaxId(tasks) + 1 : 0,
                 title: '',
                 description: '',
-                creationDate: '',
+                creationDate: new Date(),
                 dueDate: '',
                 isDone: false,
                 onEdit: true,
+                notificationTime: 30 * 60 * 1000
             };
 
             return [
@@ -43,6 +44,16 @@ export default function taskReducer(tasks, action) {
                 }
             })
         }
+        case 'snoozed': {
+            return tasks.map(task => {
+                if (task.id === action.id) {
+                    const snoozedDate = new Date(task.dueDate.getTime() + action.duration);
+                    return { ...task, dueDate: snoozedDate }
+                } else {
+                    return task;
+                }
+            })
+        }
         case 'sorted': {
             switch (action.mode) {
                 case 'asc': {
@@ -67,8 +78,16 @@ export default function taskReducer(tasks, action) {
                     return tasks;
                 }
             }
-            return tasks;
         }
+        // case 'notified': {
+        //     return tasks.map(task => {
+        //         if (task.id === action.id) {
+        //             return { ...task, wasNotified: true }
+        //         } else {
+        //             return task;
+        //         }
+        //     })
+        // }
         case 'deleted': {
             return tasks.filter(task => task.id !== action.id);
         }

@@ -38,3 +38,15 @@
     background: var(--gray-95);
     text-decoration: line-through;
 }
+
+@media(max-width:1200px) {
+    .prop {
+        padding: 0 8px;
+    }
+}
+
+@media(max-width:992px) {
+    .prop {
+        padding: 0;
+    }
+}

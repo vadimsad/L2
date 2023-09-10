@@ -1,30 +1,15 @@
 import { createContext, useEffect, useReducer } from 'react';
 import TaskBlock from '../TaskBlock/TaskBlock';
 import taskReducer from '../../reducer/reducer';
-import { loadTasksFromLS } from '../../services/taskService';
+import { loadTasksFromLS } from '../../services/localstorage';
 
 const initialTasks = loadTasksFromLS();
 
 export const TasksContext = createContext(null);
 
 const App = () => {
+
   const [tasks, dispatch] = useReducer(taskReducer, initialTasks);
-
-  // function checkTaskDeadlines() {
-  //   if ('PushManager' in window) {
-  //     navigator.serviceWorker.ready.then(function(registration) {
-  //       registration.pushManager.subscribe({ userVisibleOnly: true })
-  //         .then(function(subscription) {
-  //           console.log('Подписка на push-уведомления успешно выполнена.');
-  //         })
-  //         .catch(function(error) {
-  //           console.error('Ошибка при подписке на push-уведомления:', error);
-  //         });
-  //     });
-  //   }
-  // }
-
-  // checkTaskDeadlines(
 
   function handleAddTask() {
     dispatch({
@@ -61,6 +46,14 @@ const App = () => {
     })
   }
 
+  function handleSnoozeTask(id, duration) {
+    dispatch({
+      type: 'snoozed',
+      id,
+      duration
+    })
+  }
+
   function handleSortTasks({field, mode}) {
     dispatch({
       type: 'sorted',
@@ -77,6 +70,7 @@ const App = () => {
       onEditTask: handleEditTask, 
       onDeleteTask: handleDeleteTask,
       onToggleTask: handleToggleTask,
+      onSnoozeTask: handleSnoozeTask,
       onSortTasks: handleSortTasks,
       }}>
       <TaskBlock />

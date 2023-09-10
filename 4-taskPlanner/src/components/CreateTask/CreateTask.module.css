@@ -21,3 +21,27 @@
     font-weight: 600;
     text-align: left;
 }
+
+@media(max-width:1200px) {
+    .createText {
+        padding: 0 8px;
+    }
+}
+
+@media(max-width:992px) {
+    .createText {
+        padding: 0;
+    }
+
+    .createButton {
+        width: 1.2em;
+        height: 1.2em;
+        margin: auto;
+    }
+}
+
+@media(max-width:576px) {
+    .createButton {
+        background-size: 100%;
+    }
+}

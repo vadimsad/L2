@@ -10,6 +10,8 @@
 
 .form input, .form textarea {
     font-family: Montserrat;
+    height: 45px;
+    box-sizing: border-box;
 }
 
 .form .label {
@@ -36,14 +38,15 @@
     box-shadow: 0px 0px 0px 0px #fff9, 0px 0px 0px 0px #fff9, 0px 0px 0px 0px #0001, 0px 0px 0px 0px #0001, inset -7px -7px 20px 0px #fff9, inset -4px -4px 5px 0px #fff9, inset 7px 7px 20px 0px #0003, inset 4px 4px 5px 0px #0001;
 }
 
-.descriptionBlock {
+.flexBlock {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.descriptionBlock textarea {
+.flexBlock textarea {
     resize: none;
+    height: auto;
 }
 
 .inputBlock {
@@ -57,4 +60,93 @@
 .delete {
     margin: 0 auto;
     background-image: url('../../assets/images/delete.svg');
+}
+
+@media(max-width:1200px) {
+    .form button,
+    .form button[type="submit"] {
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border: none;
+        background-size: 80%;
+    }
+
+    .inputBlock {
+        padding: 0 6px;
+        gap: 6px;
+    }
+}
+
+@media(max-width:992px) {
+    .form button,
+    .form button[type="submit"] {
+        width: 20px;
+        height: 20px;
+        background-size: 84%;
+    }
+
+    .inputBlock {
+        padding: 0;
+        gap: 6px;
+    }
+
+    .dateInput {
+        margin-left: 6px;
+    }
+
+    .form input {
+        height: 35px;
+    }
+}
+
+@media(max-width:768px) {
+    .form {
+        grid-template-columns: 12px 2fr 1fr 1fr 15px 15px;
+    }
+
+    .form input {
+        height: 25px;
+    }
+
+    .form textarea {
+        max-height: 70px;
+    }
+
+    .form span {
+        font-size: 0.9rem;
+    }
+}
+
+@media(max-width:576px) {
+    header {
+        padding: 5px 0;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dateInput {
+        margin-left: 0;
+    }
+
+    .form button,
+    .form button[type="submit"] {
+        width: 15px;
+        height: 15px;
+        margin: 0;
+        margin-left: auto;
+    }
+
+    .form input {
+        height: 18px;
+        padding: 3px 6px;
+    }
+
+    .task-row {
+        gap: 3px;
+        padding: 5px 4px;
+    }
 }
