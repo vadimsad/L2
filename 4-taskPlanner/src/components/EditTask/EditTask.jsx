@@ -78,8 +78,10 @@ const EditTask = ({id, title, description, creationDate, dueDate, onEdit, notifi
             <input type="time" value={notificationTimeValue} onChange={handleNotificationTimeChange} />
           </label>
         </div>
-        <button type="submit" className={`btn-primary`}></button>
-        <button type="button" className={`${styles.delete} btn-primary`} onClick={handleDelete}></button>
+        <div className={styles.buttons}>
+          <button type="submit" className={`btn-primary`}></button>
+          <button type="button" className={`${styles.delete} btn-primary`} onClick={handleDelete}></button>
+        </div>
     </form>
   )
 }

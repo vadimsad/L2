@@ -67,10 +67,10 @@ h1 {
 
 @media(max-width:992px) {
     [class*="container"] {
-        max-width: 690px;
+        max-width: none;
     }
 }
-
+/* 
 @media(max-width:768px) {
     [class*="container"] {
         max-width: 510px;
@@ -81,7 +81,7 @@ h1 {
     [class*="container"] {
         max-width: none;
     }
-}
+} */
 
 *:focus-visible {
     outline: 2px solid var(--gray-60);
@@ -367,9 +367,6 @@ header, footer {
 }
 
 @media(max-width:992px) {
-    html {
-        font-size: 12px;
-    }
 
     input, textarea {
         padding: 4px 10px;
@@ -416,10 +413,6 @@ header, footer {
 }
 
 @media(max-width:768px) {
-    html {
-        font-size: 10px;
-    }
-
     main .container .content {
         margin: 0;
     }
@@ -429,7 +422,7 @@ header, footer {
     }
 
     .task-row {
-        grid-template-columns: 12px 1.5fr 1fr 1fr 20px 20px;
+        grid-template-columns: 20px 1.5fr 1fr 1fr 20px 20px;
         border-bottom: 1px solid var(--gray-95);
     }
 
@@ -456,16 +449,11 @@ header, footer {
 
 @media(max-width:576px) {
     html {
-        font-size: 8px;
+        font-size: 12px;
     }
 
     main .container .content {
         margin: 0;
-    }
-
-    .btn-primary {
-        width: 15px;
-        height: 15px;
     }
 
     label .custom-checkbox::before {
@@ -475,9 +463,5 @@ header, footer {
     input, textarea {
         border-radius: 8px;
         border: 1px solid var(--gray-97);
-    }
-
-    .task-row {
-        grid-template-columns: 12px 1.2fr 1fr 1fr 15px 15px;
     }
 }

@@ -17,7 +17,7 @@ function useTaskNotifications(tasks) {
         const intervalId = setInterval(() => {
             const notificationsToBeSent = checkTasksForApproachingDeadline(tasks);
             sendNotifications(notificationsToBeSent);
-        }, 3 * 1000); // Один раз в минуту
+        }, 5 * 1000); // Один раз в минуту
 
         // Остановка интервала при размонтировании компонента
         return () => {

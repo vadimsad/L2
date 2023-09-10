@@ -79,15 +79,6 @@ export default function taskReducer(tasks, action) {
                 }
             }
         }
-        // case 'notified': {
-        //     return tasks.map(task => {
-        //         if (task.id === action.id) {
-        //             return { ...task, wasNotified: true }
-        //         } else {
-        //             return task;
-        //         }
-        //     })
-        // }
         case 'deleted': {
             return tasks.filter(task => task.id !== action.id);
         }

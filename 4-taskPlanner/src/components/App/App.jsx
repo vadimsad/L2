@@ -1,7 +1,8 @@
-import { createContext, useEffect, useReducer } from 'react';
+import { createContext, useReducer } from 'react';
 import TaskBlock from '../TaskBlock/TaskBlock';
 import taskReducer from '../../reducer/reducer';
 import { loadTasksFromLS } from '../../services/localstorage';
+import { hasNotificationSupport, registerServiceWorker, requestNotificationPermission } from '../../services/notifications';
 
 const initialTasks = loadTasksFromLS();
 
@@ -15,6 +16,12 @@ const App = () => {
     dispatch({
       type: 'added'
     });
+
+    // Просим разрешение на уведомления при создании задачи
+    if (hasNotificationSupport()) {
+      registerServiceWorker('./service-worker.js')
+        .then(() => requestNotificationPermission())
+    }
   }
 
   function handleEditStart(id) {

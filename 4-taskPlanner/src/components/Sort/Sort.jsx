@@ -64,13 +64,13 @@ const Sort = () => {
         className={`${getSortButtonClassName(SORT_FIELDS.dueDate)} grid-area-due`} 
         type="button" 
         onClick={() => changeSort(SORT_FIELDS.dueDate)}>
-          <span>Срок выполнения</span>
+          <span>Срок</span>
         </button>
         <button 
         className={`${getSortButtonClassName(SORT_FIELDS.creationDate)} grid-area-creation`} 
         type="button" 
         onClick={() => changeSort(SORT_FIELDS.creationDate)}>
-          <span>Дата создания</span>
+          <span>Создано</span>
         </button>
     </div>
   )

@@ -4,12 +4,6 @@ import ReactDOM from 'react-dom/client'
 import './assets/styles/index.css';
 import App from './components/App/App';
 import Layout from './components/Layout/Layout';
-import { hasNotificationSupport, registerServiceWorker, requestNotificationPermission } from './services/notifications';
-
-if (hasNotificationSupport()) {
-  registerServiceWorker('./service-worker.js')
-    .then(() => requestNotificationPermission())
-}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
