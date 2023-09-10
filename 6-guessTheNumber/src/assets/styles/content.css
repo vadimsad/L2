@@ -12,8 +12,8 @@ form label {
 }
 
 .content header h2 {
-    font-weight: 400;
-    color: var(--purple);
+    font-weight: 600;
+    color: var(--gray-50);
 }
 
 .bold {
