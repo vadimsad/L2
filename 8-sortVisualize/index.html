@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визуализация сортировки</title>
+    <link rel="stylesheet" href="./src/assets/styles/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="container">
+                <h1>Задание №4</h1>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <div class="content">
+                    <div class="sort-wrapper">
+                        <div class="sort-controls">
+                            <div class="sort-settings">
+                                <label>
+                                    <span>Метод сортировки:</span>
+                                    <select id="algorithm">
+                                    </select>
+                                </label>
+                                <label>
+                                    <span>Размер массива:</span>
+                                    <input type="number" id="numbers-count" value='100' placeholder="Введите число"
+                                        oninput="this.value = this.value.replace(/\D/g, '').slice(0,3)">
+                                </label>
+                                <label>
+                                    <span>Скорость сортировки:</span>
+                                    <input type="range" id="speed">
+                                </label>
+                            </div>
+                            <div class="buttons">
+                                <button type="button" id='shuffle-button' class="btn-primary shuffle"></button>
+                                <button type="button" id='play-button' class="btn-primary play"></button>
+                            </div>
+                        </div>
+                        <div class="sort-chart">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="container"></div>
+        </footer>
+    </div>
+    <script type="module" src="./src/js/main.js"></script>
+</body>
+
+</html>
