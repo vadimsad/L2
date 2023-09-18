@@ -1,0 +1,132 @@
+.controls {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--gray-95);
+}
+
+h3 {
+    flex: 1;
+}
+
+.info {
+    width: 180px;
+    padding: 50px 5px;
+    position: absolute;
+    top: 21px;
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: var(--gray-98);
+    border-radius: 15px;
+}
+
+.game-status {
+    display: none;
+}
+
+.game-status.shown {
+    display: block;
+}
+
+.restart {
+    background-image: url(../img/restart.svg);
+}
+
+.game-wrapper {
+    width: 225px;
+    height: 450px;
+    margin: 0 auto;
+    padding: 15px;
+    position: relative;
+}
+
+.game-wrapper.game-over .game {
+    opacity: 0.5;
+}
+
+.game {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 6px;
+    gap: 4px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    box-sizing: border-box;
+    transition: opacity 0.3s ease-out;
+}
+
+.cell {
+    border-radius: 3px;
+    background-color: var(--gray-95);
+}
+
+.cell[data-figure="I"] {
+    background-color: var(--purple);
+}
+
+.cell[data-figure="J"] {
+    background-color: var(--blue);
+}
+
+.cell[data-figure="L"] {
+    background-color: var(--yellow);
+}
+
+.cell[data-figure="O"] {
+    background-color: var(--bronze);
+}
+
+.cell[data-figure="S"] {
+    background-color: var(--green);
+}
+
+.cell[data-figure="Z"] {
+    background-color: var(--pink);
+}
+
+.cell[data-figure="T"] {
+    background-color: var(--swamp);
+}
+
+.cell[data-figure="I"],
+.cell[data-figure="J"],
+.cell[data-figure="L"],
+.cell[data-figure="O"],
+.cell[data-figure="S"],
+.cell[data-figure="Z"],
+.cell[data-figure="T"] {
+    box-shadow: 
+    inset 7px 7px 20px 0px #0003,
+    inset 4px 4px 5px 0px #0001;
+}
+
+@media(max-width:768px) {
+    .game-wrapper {
+        width: 365px;
+        height: 760px;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .info {
+        width: auto;
+        padding: 15px;
+        text-wrap: nowrap;
+        position: unset;
+        transform: none;
+    }
+}
+
+@media(max-width:576px) {
+    .game-wrapper {
+        width: 300px;
+        height: 600px;
+    }
+}
