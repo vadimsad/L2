@@ -6,7 +6,7 @@ export class Player {
 }
 
 export class AIPlayer extends Player {
-    constructor(name, symbol, isHard = false) {
+    constructor(name, symbol, isHard) {
         super(name, symbol);
         this.isHard = isHard;
     }

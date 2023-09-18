@@ -1,3 +1,4 @@
+import { getBestMove } from "./minimax.js";
 import { AIPlayer, Player } from "./player.js";
 
 export class GameBoard {
@@ -5,37 +6,65 @@ export class GameBoard {
     player2 = null;
     nextMoveOwner = null;
 
-    constructor(container, boardSize = 3, gameMode = 'friend') {
+    constructor(container, boardSize, savedData) {
         this.container = container;
         this.boardSize = boardSize;
         this.winCells = [];
-        this.gameMode = gameMode;
-        this._board = this._createBoard();
+
+        if (savedData !== null) {
+            const { board, gameMode, nextMoveOwnerSymbol, player1, player2 } = savedData;
+            this.gameMode = gameMode;
+            this._board = board;
+
+            // Из объектов создаем экземпляры классов Player
+            this.player1 = player1.isHard === undefined ? new Player(player1.name, player1.symbol) : new AIPlayer(player1.name, player1.symbol, player1.isHard);
+            this.player2 = player2.isHard === undefined ? new Player(player2.name, player2.symbol) : new AIPlayer(player2.name, player2.symbol, player2.isHard);
+            this.players = [this.player1, this.player2];
+
+            // Определяем, какой из игроков ходит следующим
+            this.nextMoveOwner = this.players.find(player => player.symbol === nextMoveOwnerSymbol);
+        } else {
+            this.gameMode = 'friend';
+            this._board = this.createBoard();
+            this.createPlayers(this.gameMode);
+            this.nextMoveOwner = Math.random() > 0.5 ? this.player1 : this.player2;
+        }
     }
 
-    _createBoard() {
+    createBoard() {
         const board = [];
-
         for (let row = 0; row < this.boardSize; row++) {
             const currentRow = [];
-
             for (let col = 0; col < this.boardSize; col++) {
                 currentRow.push(new Cell(row, col));
             }
-
             board.push(currentRow);
         }
-
         return board;
     }
 
-    startGame(player1, player2) {
-        this.player1 = player1;
-        this.player2 = player2;
-        this.players = [player1, player2];
+    createPlayers(gameMode) {
+        switch (gameMode) {
+            case 'friend': {
+                this.player1 = new Player('Player-1', 'x');
+                this.player2 = new Player('Player-2', 'o');
+                break;
+            };
+            case 'ai-easy': {
+                this.player1 = new Player('Player-1', 'x');
+                this.player2 = new AIPlayer('Player-2', 'o', false);
+                break;
+            };
+            case 'ai-hard': {
+                this.player1 = new Player('Player-1', 'x');
+                this.player2 = new AIPlayer('Player-2', 'o', true);
+                break;
+            };
+        }
+        this.players = [this.player1, this.player2];
+    }
 
-        this.nextMoveOwner = Math.random() > 0.5 ? player1 : player2;
-
+    start() {
         this.updateBoard();
 
         if (this.gameMode !== 'friend' && this.nextMoveOwner instanceof AIPlayer) {
@@ -43,9 +72,11 @@ export class GameBoard {
         }
     }
 
-    restartGame(player1, player2) {
-        this._board = this._createBoard();
-        this.startGame(player1, player2);
+    restart() {
+        this._board = this.createBoard();
+        this.createPlayers(this.gameMode);
+        this.nextMoveOwner = Math.random() > 0.5 ? this.player1 : this.player2;
+        this.start();
     }
 
     makeMove(row, col) {
@@ -82,6 +113,8 @@ export class GameBoard {
 
         if (isHardMode) {
             // Реализация алгоритма минимакса для сложного режима
+            const move = getBestMove(this, this.player2, this.player1);
+            return this.makeMove(move.i, move.j);
 
         } else {
             // Рандомный ход для простого режима
